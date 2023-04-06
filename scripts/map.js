@@ -1,4 +1,5 @@
 var map; // Global variable to store the Leaflet map
+
 var towns; // GeoJSON layer for town boundaries
 var townActive; // Selected town name
 
@@ -42,11 +43,12 @@ var loadZones = function(geojson) {
   var filters = getFilters();
 
   dataLayer = L.geoJSON(geojson, {
-    attribution: 'data by Duncan Richey this is a test',
+    attribution: 'data by Duncan Richey',
     style: function(feature) { return style(filters, feature) },
     onEachFeature: function(feature, layer) {
 
       var pp = feature.properties;
+      var tooltip = null;
 
       // On layer click, select town
       layer.on('click', function() {
@@ -78,6 +80,7 @@ var loadZones = function(geojson) {
 
       });
 
+
       // Add tooltip
       layer.bindTooltip(!pp[zName] || pp[zName] === 'Not Zoned' || pp[zName] === 'NULL'
         ? '<strong>Not Zoned</strong><br>' + pp[zTown]
@@ -90,6 +93,7 @@ var loadZones = function(geojson) {
     }
 
   }).addTo(map);
+  
 
 
   // Turn on federal/state land by default
@@ -207,6 +211,8 @@ var setFilters = function() {
   });
   
 }
+
+
 
 
 /*
@@ -496,10 +502,10 @@ var initMap = function() {
 
   setFilters();
    // Load town boundaries
-  $.getJSON('./data/tests/raleigh_town_test_2.geojson', loadTowns);
+  $.getJSON('./data/towns.min.geojson', loadTowns);
 
   // Load main data GeoJSON with zones
-  $.getJSON('./data/tests/test-4-final.geojson', loadZones);
+  $.getJSON('./data/gis/final.geojson', loadZones);
   
   // Add hash
   var hash = new L.Hash(map);

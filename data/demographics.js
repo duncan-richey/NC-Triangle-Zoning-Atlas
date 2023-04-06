@@ -1,1 +1,1 @@
-var demographics = {"Raleigh":{"income":65695,"bipoc":42.4,"burdened":33.0}}
+var demographics = {"Raleigh":{"income":65695,"bipoc":47.6,"burdened":33.0},"Cary":{"income":113782,"bipoc":40.4,"burdened":15.0}}
