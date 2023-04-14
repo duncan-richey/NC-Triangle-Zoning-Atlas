@@ -294,7 +294,7 @@ var loadTowns = function(bounds) {
   towns.addTo(map);
 }
 
-//I commented out
+
 /*
  * Calculates what % of a selected town satisfies filtering criteria,
  * and updates the message in the sidebar 
@@ -341,7 +341,7 @@ var calculateActiveArea = function() {
 /*
  * Creates a layer group of rail/fastrak markers from `transit.js` data.
  */ 
-//i commented out
+
 var loadTransit = function() {
 
   var transitMarkers = transit.map(function(o) {
@@ -400,7 +400,7 @@ var loadHydro = function() {
 }
 
 // i commented out
-var loadSewer = function() {
+/* var loadSewer = function() {
 
   $.getJSON('./data/sewer.min.geojson', function(geojson) {
 
@@ -426,12 +426,12 @@ var loadSewer = function() {
 
   });
 
-}
+} */
 
 
 var loadFederalState = function() {
 
-  $.getJSON('./data/tests/federal-state.geojson', function(geojson) {
+  $.getJSON('./data/federal-state.geojson', function(geojson) {
 
     var stripes = new L.StripePattern({
       height: 2,
@@ -517,12 +517,10 @@ var initMap = function() {
   map.createPane('overlays');
   map.getPane('overlays').style.zIndex = 501;
   
-  // I commented these out
   // Add overlays
   loadTransit();
   loadHydro();
-  loadSewer();
-  loadFederalState();
+  loadFederalState(); 
 
   // Add Esri geocoder
   var searchControl = L.esri.Geocoding.geosearch({
@@ -545,17 +543,18 @@ var initMap = function() {
     animate: false,
     allowClose: false,
   });
+
   // Define the steps for introduction
   driver.defineSteps([
-    // {
-    //   element: '#CtZoningAtlas',
-    //   popover: {
-    //     title: 'Connecticut Zoning Atlas',
-    //     description: 'Zoning laws covering nearly every inch of Connecticut tell us what can be built, where.  They say whether we can have single-family housing in one neighborhood, or apartment buildings in another. This interactive map was drawn from our survey of all 2,616 zoning districts in 178 zoning jurisdictions in the state, as well as 2 subdivision-only jurisdictions in the 2 towns without zoning.  We think it shows how outdated zoning laws make it hard to build diverse, affordable housing.',
-    //     position: 'right'
-    //   }
-    // }
-    {
+ /*    {
+      element: '#NcZoningAtlas',
+      popover: {
+         title: 'North Carolina Zoning Atlas',
+         description: 'Zoning laws covering nearly every inch of North Carolina tell us what can be built, where.  They say whether we can have single-family housing in one neighborhood, or apartment buildings in another. This interactive map was drawn from our survey of all 2,616 zoning districts in 178 zoning jurisdictions in the state, as well as 2 subdivision-only jurisdictions in the 2 towns without zoning.  We think it shows how outdated zoning laws make it hard to build diverse, affordable housing.',
+         position: 'right'
+       }
+     }, */
+    { 
       element: '#TypeOfZoningDistrict',
       popover: {
         title: 'What are the Zoning Districts?',
