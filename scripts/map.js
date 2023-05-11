@@ -505,7 +505,7 @@ var initMap = function() {
   $.getJSON('./data/towns.min.geojson', loadTowns);
 
   // Load main data GeoJSON with zones
-  $.getJSON('./data/gis/final.geojson', loadZones);
+  $.getJSON('./data/gis/class-test-2.geojson', loadZones);
   
   // Add hash
   var hash = new L.Hash(map);
