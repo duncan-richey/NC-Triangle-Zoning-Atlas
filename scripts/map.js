@@ -7,10 +7,10 @@ var dataLayer; // GeoJSON layer with district data
 var overlays = {};  // An object to contain overlay layer groups, eg `transit`
 
 var zone2color = {
-  'R': '#645097', // primarily residential, satisfied
-  'M': '#815196', // mixed with residential, satisfied
-  'N': '#BA6CA4', // nonresidential, satisfied
-  'NS': '#d0d0d0', // not satisfied
+  'R': '#2171b5', // primarily residential, satisfied
+  'M': '#6baed6', // mixed with residential, satisfied
+  'N': '#bdd7e7', // nonresidential, satisfied
+  'NS': '#eff3ff', // not satisfied
 }
 
 // Columns in the original spreadsheet
