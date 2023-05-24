@@ -502,10 +502,10 @@ var initMap = function() {
 
   setFilters();
    // Load town boundaries
-  $.getJSON('./data/towns.min.geojson', loadTowns);
+  $.getJSON('./data/class-me-boundaries.geojson', loadTowns);
 
   // Load main data GeoJSON with zones
-  $.getJSON('./data/gis/class-test-2.geojson', loadZones);
+  $.getJSON('./data/gis/class-test-7.geojson', loadZones);
   
   // Add hash
   var hash = new L.Hash(map);
